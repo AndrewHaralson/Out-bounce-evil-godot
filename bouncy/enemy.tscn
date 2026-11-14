@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dvlxa3jm7qtia"]
+
+[ext_resource type="Script" uid="uid://cbiaafjuf2mmp" path="res://enemy.gd" id="1_4gyqm"]
+[ext_resource type="Texture2D" uid="uid://flhivyxma8r7" path="res://actuallyevilgodot.png" id="2_4gyqm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_186t8"]
+size = Vector2(100, 100)
+
+[node name="enemy" type="CharacterBody2D" unique_id=1551895267]
+script = ExtResource("1_4gyqm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1289623463]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_186t8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=465147674]
+position = Vector2(32, 15.999998)
+scale = Vector2(0.25399122, 0.2677951)
+texture = ExtResource("2_4gyqm")

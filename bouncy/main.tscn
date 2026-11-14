@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dyynbbc0xcv8o"]
+
+[ext_resource type="PackedScene" uid="uid://hxn6g2pf0hog" path="res://enemyball.tscn" id="2_h2yge"]
+[ext_resource type="PackedScene" uid="uid://dvlxa3jm7qtia" path="res://enemy.tscn" id="3_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://cdoh0k4vgm7c6" path="res://player.tscn" id="3_h2yge"]
+[ext_resource type="Script" uid="uid://dy30igm1wkybt" path="res://gamemanager.gd" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c71hu8wnpq8v8" path="res://playerball.tscn" id="5_lquwl"]
+
+[sub_resource type="Gradient" id="Gradient_lquwl"]
+colors = PackedColorArray(0, 0, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i3pqv"]
+gradient = SubResource("Gradient_lquwl")
+
+[node name="main" type="Node2D" unique_id=1888789420]
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=792919817]
+offset_right = 1157.0
+offset_bottom = 648.0
+texture = SubResource("GradientTexture2D_i3pqv")
+
+[node name="enemyball" parent="." unique_id=1528769556 instance=ExtResource("2_h2yge")]
+unique_name_in_owner = true
+position = Vector2(1051, 319)
+
+[node name="playerball" parent="." unique_id=64716282 instance=ExtResource("5_lquwl")]
+unique_name_in_owner = true
+position = Vector2(109, 319)
+
+[node name="player" parent="." unique_id=1551895267 instance=ExtResource("3_h2yge")]
+unique_name_in_owner = true
+position = Vector2(234, 302)
+
+[node name="enemy" parent="." unique_id=1102255856 instance=ExtResource("3_1bvp3")]
+unique_name_in_owner = true
+position = Vector2(912, 289)
+
+[node name="gamemanager" type="Node" parent="." unique_id=745369546]
+script = ExtResource("4_1bvp3")
+
+[node name="Label" type="Label" parent="gamemanager" unique_id=911615249]
+unique_name_in_owner = true
+offset_left = 23.0
+offset_top = 23.0
+offset_right = 1132.0
+offset_bottom = 622.0
+text = "hi"
+
+[connection signal="body_entered" from="playerball" to="enemyball" method="_on_playerball_body_entered"]
+[connection signal="body_entered" from="playerball" to="playerball" method="_on_body_entered"]

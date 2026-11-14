@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://c71hu8wnpq8v8"]
+
+[ext_resource type="Script" uid="uid://bbnd6p53isoci" path="res://playerball.gd" id="1_nay1e"]
+[ext_resource type="Texture2D" uid="uid://ceyg3sxk2rwu0" path="res://playerball.png" id="2_rxcl0"]
+[ext_resource type="AudioStream" uid="uid://dfgbquwwvhtf" path="res://bounce.mp3" id="3_bfb3p"]
+[ext_resource type="AudioStream" uid="uid://dfbvcte0ajyje" path="res://damage.mp3" id="4_4nty6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hy168"]
+radius = 14.142136
+
+[node name="playerball" type="Area2D" unique_id=64716282]
+script = ExtResource("1_nay1e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1145531987]
+shape = SubResource("CircleShape2D_hy168")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=232192362]
+position = Vector2(11.000001, -3.9999995)
+scale = Vector2(0.08901367, 0.08901367)
+texture = ExtResource("2_rxcl0")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1747111496]
+stream = ExtResource("3_bfb3p")
+volume_db = -3.0
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1154343070]
+stream = ExtResource("4_4nty6")

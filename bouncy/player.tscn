@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://cdoh0k4vgm7c6"]
+
+[ext_resource type="Texture2D" uid="uid://choptuuvnd53w" path="res://icon.svg" id="1_f50pn"]
+[ext_resource type="Script" uid="uid://c8ljsb0jwud5j" path="res://player.gd" id="1_ij6vw"]
+[ext_resource type="AudioStream" uid="uid://bvjukjdcbx2bv" path="res://godotgrowl.mp3" id="3_i3pqv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_186t8"]
+size = Vector2(100, 100)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=1551895267]
+script = ExtResource("1_ij6vw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1289623463]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_186t8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=465147674]
+position = Vector2(9.536743e-07, -1.5000029)
+scale = Vector2(0.71875, 0.75781244)
+texture = ExtResource("1_f50pn")
+
+[node name="Timer" type="Timer" parent="." unique_id=382186916]
+wait_time = 1.5
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=226066573]
+stream = ExtResource("3_i3pqv")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
